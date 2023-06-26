@@ -50,8 +50,28 @@ export default {
 </script>
 
 <template>
-    <AppSearch @search="handleSearch"/>
+    <header>
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="header-title d-flex align-items-center">
+                <h1 class="text-uppercase">Boolflix</h1>
+            </div>
+            <div class="header-search d-flex align-items-centerd-flex align-items-center">
+                <AppSearch @search="handleSearch" />
+            </div>
+        </div>
+    </header>
 </template>
 
 <style scoped lang="scss" >
+header {
+    background-color: black;
+    height: 100px;
+    .container {
+        height: 100%;
+        h1 {
+            color: red;
+
+        }
+    }
+}
 </style>
