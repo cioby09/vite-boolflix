@@ -1,17 +1,28 @@
 <script>
+import { store } from '../store.js'
+import LangFlag from 'vue-lang-code-flags';
+
 export default {
     name: "AppCard",
-    props: {
-        card: Object,
+    props: ["card"],
+    components: {
+        LangFlag
     },
+    data() {
+        return {
+            store
+        }
+    }
 };
 </script>
 
 <template>
     <div class="card">
-        <p>{{ card.title }}</p>
-        <p>{{ card.original_title }}</p>
-        <p>{{ card.original_language }}</p>
-        <p>{{ card.vote_average }}</p>
+        <ul>
+            <li>Titolo: {{ card.title }}</li>
+            <li>Titolo originale: {{ card.original_title }}</li>
+            <li>Lingua: <lang-flag :iso="`${card.original_language}`" /></li>
+            <li>Voto: {{ card.vote_average }}</li>
+        </ul>
     </div>
 </template>
