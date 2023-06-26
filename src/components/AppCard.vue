@@ -18,6 +18,10 @@ export default {
 
 <template>
     <div class="card">
+        <img :src="`${store.imgUrl}${card.poster_path}`" alt="">
+        <h2 v-if="!card.poster_path">
+            <img src="../assets/img/notavailable.jpg" alt="">
+        </h2>
         <ul>
             <li>Titolo: {{ card.title }}</li>
             <li>Titolo originale: {{ card.original_title }}</li>
@@ -26,3 +30,13 @@ export default {
         </ul>
     </div>
 </template>
+
+<style scoped lang="scss">
+.card {
+    height: 100%;
+}
+
+img {
+    width: 100%;
+}
+</style>
