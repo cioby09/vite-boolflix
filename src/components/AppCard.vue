@@ -12,6 +12,11 @@ export default {
         return {
             store
         }
+    },
+    computed: {
+        setVote() {
+            return Math.ceil(this.card.vote_average / 2)
+        }
     }
 };
 </script>
@@ -26,7 +31,10 @@ export default {
             <li>Titolo: {{ card.title }}</li>
             <li>Titolo originale: {{ card.original_title }}</li>
             <li>Lingua: <lang-flag :iso="`${card.original_language}`" /></li>
-            <li>Voto: {{ card.vote_average }}</li>
+            <li>Voto: <span v-for="i in store.stars">
+                    <i :class="[(i <= setVote) ? 'fa-solid fa-star' : 'fa-regular fa-star']"></i>
+                </span>
+            </li>
         </ul>
     </div>
 </template>
